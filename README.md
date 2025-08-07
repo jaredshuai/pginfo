@@ -29,13 +29,23 @@ This is a device information management system with two backend implementations:
 - 远程控制码
 - 远程访问密码（安全存储）
 
-## 技术栈
+## 技术栈 / Technology Stack
 
+### Django 版本 / Django Version
 - Python 3.8+
 - Django 4.2.0+
 - Django REST framework 3.14.0+
 - Pillow 10.1.0+（图片处理）
 - SQLite3（数据库）
+
+### FastAPI 版本 / FastAPI Version
+- Python 3.8+
+- FastAPI
+- SQLModel (ORM + Validation)
+- Alembic (Database migrations)
+- Uvicorn (ASGI server)
+- PostgreSQL (推荐) / PostgreSQL (recommended)
+- psycopg2-binary (PostgreSQL driver)
 
 ## 安装部署
 
@@ -138,3 +148,4 @@ pginfobackend/
 ## 许可证
 
 [许可证类型] 
+
