@@ -27,6 +27,9 @@ db.sqlite3
 db.sqlite3-journal
 media/
 
+# Database files
+*.db
+
 # Virtual Environment
 venv/
 ENV/
