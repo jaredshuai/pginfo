@@ -19,7 +19,7 @@ class DeviceSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'name', 'brand', 'model',
             'project', 'project_name', 'project_description',  # 项目相关字段
-            'ip_address', 'subnet_mask', 'gateway',
+            'ip_address', 'subnet_mask', 'gateway', 'location', 'status',
             'photo', 'longitude', 'latitude',
             'remote_code', 'remote_password',
             'product_manual',
@@ -38,4 +38,6 @@ class DeviceSerializer(serializers.ModelSerializer):
             'model': {'required': False, 'allow_blank': True},  # 型号可以为空
             'remote_code': {'required': False, 'allow_blank': True},  # 远程控制码可以为空
             'remote_password': {'required': False, 'allow_blank': True},  # 远程密码可以为空
+            'location': {'required': False, 'allow_blank': True},  # 位置可以为空
+            'status': {'required': False, 'allow_blank': True},  # 状态可以为空
         } 

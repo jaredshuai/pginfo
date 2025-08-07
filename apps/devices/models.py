@@ -57,6 +57,18 @@ class Device(models.Model):
     remote_code = models.CharField(max_length=50, null=True, blank=True, verbose_name="远程控制码")
     remote_password = models.CharField(max_length=50, null=True, blank=True, verbose_name="远程控制密码")
 
+    # 新增字段
+    location = models.CharField(max_length=200, null=True, blank=True, verbose_name="设备位置")
+    STATUS_CHOICES = [
+        ('online', '在线'),
+        ('offline', '离线'),
+        ('error', '故障'),
+    ]
+    status = models.CharField(
+        max_length=50, choices=STATUS_CHOICES,
+        null=True, blank=True, verbose_name="设备状态"
+    )
+
     # 产品说明书
     product_manual = models.FileField(
         upload_to='devices/manuals/', 
