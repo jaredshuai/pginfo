@@ -243,7 +243,33 @@ pginfo/
 - 文件字段：`photo`, `product_manual`
 - 控制信息：`remote_code`, `remote_password`
 
-## 注意事项
+## 注意事项 / Important Notes
+
+### FastAPI 版本 / FastAPI Version
+
+1. **生产环境部署 / Production Deployment**
+   - 配置正确的 `DATABASE_URL` 环境变量 / Configure correct `DATABASE_URL` environment variable
+   - 使用生产级 ASGI 服务器如 Gunicorn + Uvicorn / Use production ASGI server like Gunicorn + Uvicorn
+   - 配置 HTTPS / Configure HTTPS
+   - 设置适当的 CORS 策略 / Set appropriate CORS policies
+
+2. **数据库 / Database**
+   - 推荐使用 PostgreSQL 作为生产数据库 / PostgreSQL recommended for production
+   - 定期备份数据库 / Regular database backups
+   - 运行迁移前请备份数据 / Backup data before running migrations
+
+3. **安全性 / Security**
+   - 远程控制密码在 API 响应中不可见 / Remote passwords hidden in API responses
+   - 建议使用 HTTPS 进行传输 / HTTPS recommended for transmission
+   - 配置适当的 CORS 和安全头 / Configure appropriate CORS and security headers
+   - 考虑添加 API 认证和授权 / Consider adding API authentication and authorization
+
+4. **开发 / Development**
+   - 使用 `--reload` 标志进行开发 / Use `--reload` flag for development
+   - 查看 Swagger UI 文档进行 API 测试 / Use Swagger UI docs for API testing
+   - SQLModel 提供自动 API 验证和文档生成 / SQLModel provides automatic API validation and docs
+
+### Django 版本 / Django Version
 
 1. 生产环境部署时请修改 `settings.py` 中的以下配置：
    - `DEBUG = False`
@@ -262,6 +288,7 @@ pginfo/
 ## 许可证
 
 [许可证类型] 
+
 
 
 
