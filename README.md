@@ -1,6 +1,12 @@
-# 设备信息管理系统
+# 设备信息管理系统 / Device Information Management System
 
-这是一个基于 Django REST framework 开发的设备信息管理系统后端，用于管理和维护设备相关信息。
+这是一个设备信息管理系统，包含两个版本的后端实现：
+- **Django REST Framework** 版本（原始实现）
+- **FastAPI** 版本（新的现代化实现）
+
+This is a device information management system with two backend implementations:
+- **Django REST Framework** version (original implementation)  
+- **FastAPI** version (new modern implementation)
 
 ## 功能特点
 
