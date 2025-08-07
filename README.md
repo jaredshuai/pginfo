@@ -47,37 +47,77 @@ This is a device information management system with two backend implementations:
 - PostgreSQL (推荐) / PostgreSQL (recommended)
 - psycopg2-binary (PostgreSQL driver)
 
-## 安装部署
+## 安装部署 / Installation & Deployment
 
-1. 克隆项目
+### FastAPI 版本设置 / FastAPI Version Setup
+
+#### 1. 克隆项目 / Clone the project
 ```bash
 git clone [项目地址]
-cd pginfobackend
+cd pginfo
 ```
 
-2. 创建虚拟环境（推荐）
+#### 2. 创建虚拟环境（推荐）/ Create virtual environment (recommended)
 ```bash
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
 ```
 
-3. 安装依赖
+#### 3. 安装依赖 / Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-4. 数据库迁移
+#### 4. 环境变量配置 / Environment Variables Setup
+创建 `.env` 文件并配置数据库连接：
+Create a `.env` file and configure database connection:
+
+```bash
+# PostgreSQL 数据库连接 / PostgreSQL Database Connection
+DATABASE_URL=postgresql://username:password@localhost:5432/database_name
+
+# 示例 / Example:
+# DATABASE_URL=postgresql://pginfo_user:your_password@localhost:5432/pginfo_db
+```
+
+#### 5. 数据库迁移 / Database Migration
+```bash
+# 运行 Alembic 迁移创建数据库表 / Run Alembic migration to create database tables
+alembic upgrade head
+```
+
+#### 6. 启动 FastAPI 服务器 / Start FastAPI Server
+```bash
+# 开发环境 / Development
+uvicorn fastapi_app.main:app --reload --host 0.0.0.0 --port 8000
+
+# 生产环境 / Production
+uvicorn fastapi_app.main:app --host 0.0.0.0 --port 8000
+```
+
+#### 7. 访问 API 文档 / Access API Documentation
+- Swagger UI: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
+
+### Django 版本设置 / Django Version Setup
+
+#### 1. 安装依赖 / Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+#### 2. 数据库迁移 / Database Migration
 ```bash
 python manage.py migrate
 ```
 
-5. 创建超级用户（可选）
+#### 3. 创建超级用户（可选）/ Create superuser (optional)
 ```bash
 python manage.py createsuperuser
 ```
 
-6. 启动开发服务器
+#### 4. 启动开发服务器 / Start development server
 ```bash
 python manage.py runserver
 ```
@@ -148,4 +188,5 @@ pginfobackend/
 ## 许可证
 
 [许可证类型] 
+
 
