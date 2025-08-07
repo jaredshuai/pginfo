@@ -167,11 +167,29 @@ All API responses are wrapped in a consistent format: `{"code": 0, "msg": "succe
 - 设备照片存储路径：`media/devices/photos/`
 - 产品说明书存储路径：`media/devices/manuals/`
 
-## 开发说明
+## 开发说明 / Development Guide
 
-### 项目结构
+### FastAPI 项目结构 / FastAPI Project Structure
 ```
-pginfobackend/
+pginfo/
+├── fastapi_app/          # FastAPI 应用目录 / FastAPI application directory
+│   ├── main.py          # 主应用文件 / Main application file
+│   ├── models.py        # SQLModel 数据模型 / SQLModel data models
+│   ├── database.py      # 数据库连接配置 / Database connection setup
+│   ├── response.py      # 统一响应格式 / Unified response format
+│   └── routers/         # API 路由 / API routers
+│       ├── projects.py  # 项目管理路由 / Project management routes
+│       └── devices.py   # 设备管理路由 / Device management routes
+├── alembic/             # 数据库迁移 / Database migrations
+│   ├── versions/        # 迁移版本文件 / Migration version files
+│   └── env.py          # Alembic 环境配置 / Alembic environment config
+├── alembic.ini          # Alembic 配置文件 / Alembic configuration
+└── requirements.txt     # 项目依赖 / Project dependencies
+```
+
+### Django 项目结构 / Django Project Structure
+```
+pginfo/
 ├── apps/
 │   ├── devices/          # 设备管理应用
 │   │   ├── models.py     # 设备数据模型
@@ -179,6 +197,7 @@ pginfobackend/
 │   │   ├── views.py      # 视图逻辑
 │   │   └── urls.py       # URL配置
 │   └── projects/         # 项目管理应用
+├── pginfobackend/        # Django 项目配置
 ├── media/                # 媒体文件目录
 ├── static/               # 静态文件目录
 ├── templates/            # 模板目录
@@ -212,6 +231,7 @@ pginfobackend/
 ## 许可证
 
 [许可证类型] 
+
 
 
 
