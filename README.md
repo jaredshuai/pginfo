@@ -122,16 +122,40 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-## API 接口
+## API 接口 / API Endpoints
 
-### 设备管理接口
+### FastAPI 版本 / FastAPI Version
+
+所有 API 响应都包装在统一格式中：`{"code": 0, "msg": "success", "data": {...}}`
+All API responses are wrapped in a consistent format: `{"code": 0, "msg": "success", "data": {...}}`
+
+#### 项目管理接口 / Project Management
+- `GET /api/projects/` - 获取项目列表 / Get project list
+  - 查询参数 / Query params: `name` (过滤 / filter)
+- `POST /api/projects/` - 创建新项目 / Create new project
+- `GET /api/projects/{id}/` - 获取项目详情（包含设备列表）/ Get project details (with device list)
+- `PUT /api/projects/{id}/` - 更新项目信息 / Update project info
+- `DELETE /api/projects/{id}/` - 删除项目 / Delete project
+- `GET /api/projects/{id}/devices/` - 获取项目关联的设备列表 / Get devices for project
+
+#### 设备管理接口 / Device Management
+- `GET /api/devices/` - 获取设备列表 / Get device list
+  - 查询参数 / Query params: `project_id`, `name`, `ip_address` (过滤和搜索 / filter and search)
+- `POST /api/devices/` - 创建新设备 / Create new device
+- `GET /api/devices/{id}/` - 获取设备详情 / Get device details
+- `PUT /api/devices/{id}/` - 更新设备信息 / Update device info
+- `DELETE /api/devices/{id}/` - 删除设备 / Delete device
+
+### Django 版本 / Django Version
+
+#### 设备管理接口 / Device Management
 - `GET /api/devices/` - 获取设备列表
 - `POST /api/devices/` - 创建新设备
 - `GET /api/devices/{id}/` - 获取设备详情
 - `PUT /api/devices/{id}/` - 更新设备信息
 - `DELETE /api/devices/{id}/` - 删除设备
 
-### 项目管理接口
+#### 项目管理接口 / Project Management
 - `GET /api/projects/` - 获取项目列表
 - `POST /api/projects/` - 创建新项目
 - `GET /api/projects/{id}/` - 获取项目详情
@@ -188,5 +212,6 @@ pginfobackend/
 ## 许可证
 
 [许可证类型] 
+
 
 
