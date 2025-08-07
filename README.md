@@ -204,7 +204,38 @@ pginfo/
 └── manage.py            # Django管理脚本
 ```
 
-### 数据模型
+### 数据模型 / Data Models
+
+#### FastAPI 版本 (SQLModel) / FastAPI Version (SQLModel)
+
+**Project 模型 / Project Model:**
+- `id`: Integer (主键 / Primary Key)
+- `name`: String (项目名称 / Project Name)
+- `description`: String (可选，项目描述 / Optional, Project Description)
+- `created_at`: DateTime (创建时间 / Creation Time)
+- `updated_at`: DateTime (更新时间 / Update Time)
+
+**Device 模型 / Device Model:**
+- `id`: Integer (主键 / Primary Key)
+- `name`: String (设备名称 / Device Name)
+- `brand`: String (可选，品牌 / Optional, Brand)
+- `model`: String (可选，型号 / Optional, Model)
+- `ip_address`: String (可选，IP地址 / Optional, IP Address)
+- `subnet_mask`: String (可选，子网掩码 / Optional, Subnet Mask)
+- `gateway`: String (可选，网关 / Optional, Gateway)
+- `location`: String (可选，位置 / Optional, Location)
+- `longitude`: Float (可选，经度 / Optional, Longitude)
+- `latitude`: Float (可选，纬度 / Optional, Latitude)
+- `status`: Enum (状态：ONLINE/OFFLINE/ERROR / Status: ONLINE/OFFLINE/ERROR)
+- `photo`: String (可选，照片路径 / Optional, Photo Path)
+- `product_manual`: String (可选，说明书路径 / Optional, Manual Path)
+- `remote_code`: String (可选，远程控制码 / Optional, Remote Code)
+- `remote_password`: String (可选，远程密码 / Optional, Remote Password)
+- `project_id`: Integer (外键，关联项目 / Foreign Key, Related Project)
+- `created_at`: DateTime (创建时间 / Creation Time)
+- `updated_at`: DateTime (更新时间 / Update Time)
+
+#### Django 版本 / Django Version
 设备模型包含以下主要字段：
 - 基本信息：`name`, `brand`, `model`
 - 网络信息：`ip_address`, `subnet_mask`, `gateway`
@@ -231,6 +262,7 @@ pginfo/
 ## 许可证
 
 [许可证类型] 
+
 
 
 
